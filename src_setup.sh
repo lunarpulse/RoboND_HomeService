@@ -13,6 +13,11 @@ rosdep -i install urtlebot_teleop
 rosdep -i install turtlebot_gazebo
 rosdep -i install turtlebot_interactions
 
+catkin_create_pkg wall_follower roscpp
+
 cd ..
 catkin_make
 source devel/setup.bash
+
+
+
