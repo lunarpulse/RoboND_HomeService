@@ -42,15 +42,15 @@ catkin_create_pkg wall_follower roscpp
 
 ### Edit *_node.cpp
 ```
-add ./src/wall_follower/src/wall_follower_node.cpp
+add `./src/wall_follower/src/wall_follower_node.cpp`
 
 
 ### Edit CMakeLists
-edit ./src/wall_follower/CMakeLists.txt
+edit `./src/wall_follower/CMakeLists.txt`
 
-  * uncomment ln8 add_compile_options(-std=c++11)
-  * uncomment ln 134 add_executable(${PROJECT_NAME}_node src/wall_follower_node.cpp)
-  * uncomment ln149 target_link_libraries(${PROJECT_NAME}_node  ${catkin_LIBRARIES} )
+  * uncomment ln8 `add_compile_options(-std=c++11)`
+  * uncomment ln 134 `add_executable(${PROJECT_NAME}_node src/wall_follower_node.cpp)`
+  * uncomment ln149 `target_link_libraries(${PROJECT_NAME}_node  ${catkin_LIBRARIES} )`
 
 ### build Pkg
 run 
@@ -60,7 +60,9 @@ catkin_make clean && catkin_make && source devel/setup.bash
 
 ```
 
-add launch file : ./src/ShellScrips/wall_follower.sh
+add launch file : `./src/ShellScrips/wall_follower.sh`
 
 ### Launch Pkg commands
-- wall follower: ./src/ShellScripts/wall_follower.sh
+- wall follower: `./src/ShellScripts/wall_follower.sh`
+### Caution
+turn after a map registered during SLAM

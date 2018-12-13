@@ -55,13 +55,13 @@ bool robot_move(const ROBOT_MOVEMENT move_type)
     else if (move_type == TURN_LEFT) {
         ROS_INFO("[ROBOT] I'm turning left! \n");
         motor_command.linear.x = 0.0;
-        motor_command.angular.z = 1.0;
+        motor_command.angular.z = 0.5;
     }
 
     else if (move_type == TURN_RIGHT) {
         ROS_INFO("[ROBOT] I'm turning right! \n");
         motor_command.linear.x = 0.0;
-        motor_command.angular.z = -1.0;
+        motor_command.angular.z = -0.5;
     }
     else if (move_type == GO_RIGHT) {
         ROS_INFO("[ROBOT] I'm goin right! \n");
@@ -80,7 +80,7 @@ bool robot_move(const ROBOT_MOVEMENT move_type)
 
     //Publish motor commands to the robot and wait 10ms
     motor_command_publisher.publish(motor_command);
-    usleep(50);
+    usleep(10);
     return true;
 }
 
