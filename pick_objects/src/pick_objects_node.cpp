@@ -59,6 +59,8 @@ int main(int argc, char** argv){
 	  // Check if the robot reached its goal
 	  if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED){
 		  ROS_INFO("Reached the second goal.");
+		  // Sleep for 5 seconds
+		  ros::Duration(5.0).sleep();
 	 }
 	  else
 		  ROS_INFO("The base failed to the drop off location.");

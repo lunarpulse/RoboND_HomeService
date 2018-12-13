@@ -86,7 +86,7 @@ get the goal 1 and goal 2 from rviz click goal and see on the terminal with `ros
 
 ### Edit CMakeLists
 edit `./src/pick_objects/CMakeLists.txt`
-
+  * uncomment ln 119 `include_driectories`
   * uncomment ln 134 `add_executable(${PROJECT_NAME}_node src/pick_objects_node.cpp)`
   * uncomment ln149 `target_link_libraries(${PROJECT_NAME}_node  ${catkin_LIBRARIES} )`
 
