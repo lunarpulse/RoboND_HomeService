@@ -39,9 +39,10 @@ add launch file : ./src/ShellScrips/test_slam.sh
 ```
 cd ~/catkin/src
 catkin_create_pkg wall_follower roscpp
+```
 
 ### Edit *_node.cpp
-```
+
 add `./src/wall_follower/src/wall_follower_node.cpp`
 
 
@@ -54,6 +55,7 @@ edit `./src/wall_follower/CMakeLists.txt`
 
 ### build Pkg
 run 
+
 ```
 cd ~/catkin/src
 catkin_make clean && catkin_make && source devel/setup.bash
@@ -66,3 +68,39 @@ add launch file : `./src/ShellScrips/wall_follower.sh`
 - wall follower: `./src/ShellScripts/wall_follower.sh`
 ### Caution
 turn after a map registered during SLAM
+
+## pick_objects
+
+### Make Pkg
+
+```
+cd ~/catkin/src
+catkin_create_pkg pick_objects roscpp move_base_msgs actionlib
+```
+
+### Edit *_node.cpp
+
+add `./src/pick_objects/src/pick_objects_node.cpp`
+
+get the goal 1 and goal 2 from rviz click goal and see on the terminal with `rostopic echo /move_base/current_goal -n1`
+
+### Edit CMakeLists
+edit `./src/pick_objects/CMakeLists.txt`
+
+  * uncomment ln 134 `add_executable(${PROJECT_NAME}_node src/pick_objects_node.cpp)`
+  * uncomment ln149 `target_link_libraries(${PROJECT_NAME}_node  ${catkin_LIBRARIES} )`
+
+### build Pkg
+run 
+```
+cd ~/catkin/src
+catkin_make clean && catkin_make && source devel/setup.bash
+
+```
+
+add launch file : `./src/ShellScrips/pick_objects.sh`
+
+### Launch Pkg commands
+- wall follower: `./src/ShellScripts/pick_objects.sh`
+
+
