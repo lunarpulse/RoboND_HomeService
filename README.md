@@ -28,7 +28,7 @@ cd ~/catkin/src
 catkin_make clean && catkin_make && source devel/setup.bash
 
 ```
-add launch file : ./src/ShellScrips/test_slam.sh
+add launch file : ./src/ShellScripts/test_slam.sh
 
 ### Launch commands
 - test slam: ./src/ShellScripts/test_slam.sh
@@ -62,7 +62,7 @@ catkin_make clean && catkin_make && source devel/setup.bash
 
 ```
 
-add launch file : `./src/ShellScrips/wall_follower.sh`
+add launch file : `./src/ShellScripts/wall_follower.sh`
 
 ### Launch Pkg commands
 - wall follower: `./src/ShellScripts/wall_follower.sh`
@@ -98,7 +98,7 @@ catkin_make clean && catkin_make && source devel/setup.bash
 
 ```
 
-add launch file : `./src/ShellScrips/pick_objects.sh`
+add launch file : `./src/ShellScripts/pick_objects.sh`
 
 ### Launch Pkg commands
 - wall follower: `./src/ShellScripts/pick_objects.sh`
@@ -116,6 +116,11 @@ catkin_create_pkg add_markers roscpp move_base_msgs actionlib
 
 add `./src/add_markers/src/add_markers.cpp`
 
+Modifed to show marker to the goal position
+
+goal position, not picked up = showing object
+while picked up an object, new goal position, = hide object until arrive
+the goal and drop off
 get the goal 1 and goal 2 from rviz click goal and see on the terminal with `rostopic echo /move_base/current_goal -n1`
 
 ### Edit CMakeLists
@@ -135,10 +140,16 @@ catkin_make clean && catkin_make && source devel/setup.bash
 
 ```
 
-add launch file : `./src/ShellScrips/add_markers.sh`
+add launch file : `./src/ShellScripts/add_markers.sh`
 
 ### Launch Pkg commands
 - wall follower: `./src/ShellScripts/add_markers.sh`
+
+
+add launch file : `./src/shellscripts/home_service.sh`
+
+### launch pkg commands
+- wall follower: `./src/shellscripts/home_service.sh`
 
 
 
