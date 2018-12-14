@@ -1,14 +1,14 @@
 # Setup
 
 ```
+cd ~/catkin_ws/src
+
 sudo apt-get remove turtlebot-*
 
-git clone https://github.com/ros-perception/slam_gmapping.git
-git clone https://github.com/turtlebot/turtlebot_interactions.git
-git clone https://github.com/turtlebot/turtlebot_simulator
-git clone https://github.com/turtlebot/turtlebot
+git clone --recurse-submodules -j8 
 
 source ../devel/setup.bash
+
 rosdep -i install turtlebot
 rosdep -i install urtlebot_teleop
 rosdep -i install turtlebot_gazebo
@@ -145,6 +145,12 @@ add launch file : `./src/ShellScripts/add_markers.sh`
 ### Launch Pkg commands
 - wall follower: `./src/ShellScripts/add_markers.sh`
 
+# Methods
+
+ 1. make a building in gazebo edit building
+ 2. run `wall_follower.sh` to SLAM and create map and save it to ./WORLD/ by `rosrun map_server map_saver -f WindMill`
+ 3. run `pick_objects.sh` to get new goal position in rviz by 2d goal command and `rostopic info /move_base/current_goal -n2`
+ 4. run 'home_service.sh` to see it picks up at goal 1 and drops to goal 2.
 
 add launch file : `./src/shellscripts/home_service.sh`
 

@@ -23,14 +23,14 @@ int main(int argc, char** argv){
   goal.target_pose.header.stamp = ros::Time::now();
 
   // Define a position and orientation for the robot to reach
-  goal.target_pose.pose.position.x =2.78205251694;
-  goal.target_pose.pose.position.y =1.13228130341;
-  goal.target_pose.pose.orientation.z =0.996827650711;
-  goal.target_pose.pose.orientation.w =-0.0795904188791;
+  goal.target_pose.pose.position.x =-7.45129108429;
+  goal.target_pose.pose.position.y = 14.9243574142;
+  goal.target_pose.pose.orientation.z =0.768808350936;
+  goal.target_pose.pose.orientation.w = 0.639479256529;
   ros::Duration(1.5).sleep();
 
    // Send the goal position and orientation for the robot to reach
-  ROS_INFO("Sendingp pick up location.");
+  ROS_INFO("Sending pick up location.");
   ac.sendGoal(goal);
 
   // Wait an infinite time for the results
@@ -44,10 +44,10 @@ int main(int argc, char** argv){
 	  ros::Duration(5.0).sleep();
 	  
 	  //set drop off location
-    goal.target_pose.pose.position.x =3.44253015518;
-    goal.target_pose.pose.position.y =-3.48189783096;
-    goal.target_pose.pose.orientation.z = 0.997869659399;
-    goal.target_pose.pose.orientation.w =-0.0652391205503;
+    goal.target_pose.pose.position.x =11.1641082764;
+    goal.target_pose.pose.position.y = 3.15395832062;
+    goal.target_pose.pose.orientation.z = -0.557865434918;
+    goal.target_pose.pose.orientation.w = 0.829931416759;
 
 	  // Send the goal position and orientation for the robot to reach
 	  ROS_INFO("Sending drop off location.");

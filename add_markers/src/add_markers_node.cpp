@@ -7,7 +7,7 @@ float current_goal_pose[2] = {FLT_MAX, FLT_MAX};
 float previous_goal_pose[2] = {FLT_MAX, FLT_MAX};
 bool pickedUp = false;
 static visualization_msgs::Marker marker;
-uint32_t shape = visualization_msgs::Marker::SPHERE;
+static uint32_t shape = visualization_msgs::Marker::SPHERE;
 
 void mark(uint32_t shape){
 
@@ -54,7 +54,7 @@ void mark(uint32_t shape){
 void odom_callback(const nav_msgs::Odometry::ConstPtr &odomMsg){
 	float px = odomMsg->pose.pose.position.x;
 	float py = odomMsg->pose.pose.position.y;
-	float e = 0.25f;
+	float e = 0.75f;
   
   if((px > current_goal_pose[0] -e and px < current_goal_pose[0] + e ) and (current_goal_pose[1] +e > py and py > current_goal_pose[1] -e))
   {
@@ -63,7 +63,7 @@ void odom_callback(const nav_msgs::Odometry::ConstPtr &odomMsg){
     current_goal_pose[0] = FLT_MAX;
     current_goal_pose[1] = FLT_MAX;
     mark(shape);
-    ros::Duration(1.0).sleep();
+    //ros::Duration(1.0).sleep();
   }
 }
 void mv_cgoal_callback(const geometry_msgs::PoseStamped::ConstPtr &pose){
